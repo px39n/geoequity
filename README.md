@@ -2,6 +2,9 @@
 
 **Spatial Equity Assessment for Machine Learning Models**
 
+[![DOI](https://zenodo.org/badge/1114901804.svg)](https://doi.org/10.5281/zenodo.17915557)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 GeoEquity diagnoses and visualizes spatial performance disparities in geospatial ML models—identifying where models underperform and predicting accuracy across space.
 
 ## Installation
@@ -47,6 +50,12 @@ Your DataFrame should contain:
 - [Quick Start Guide](https://px39n.github.io/geoequity/getting-started/quickstart/)
 - [Two-Stage Model](https://px39n.github.io/geoequity/guide/two-stage/)
 - [Example Notebooks](https://px39n.github.io/geoequity/examples/Standard_workflow_geoequity/)
+
+## Data
+
+Example datasets are available on Zenodo: [https://doi.org/10.5281/zenodo.17915696](https://doi.org/10.5281/zenodo.17915696)
+
+Direct download: [geoequity.zip](https://zenodo.org/records/17915696/files/geoequity.zip?download=1)
 
 ## Citation
 
