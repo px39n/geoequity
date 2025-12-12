@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "geoequity"
-version = "1.0.0"
+version = "1.0.2"
 description = "Spatial Equity Assessment for Machine Learning Models"
 readme = "README.md"
-license = "MIT License"
+license = {text = "MIT"}
 authors = [
     {name = "Zhehao Liang", email = "zliang7@nd.edu"}
 ]
