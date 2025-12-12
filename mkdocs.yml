@@ -62,6 +62,8 @@ nav:
     - Visualization: api/visualization.md
   - Examples:
     - Standard Workflow: examples/Standard_workflow_geoequity.ipynb
+    - Framework Comparison: examples/Framework_Comparision.ipynb
+    - Scientific Visualization: examples/Scientific_Visualization.ipynb
 
 extra:
   social:
