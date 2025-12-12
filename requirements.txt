@@ -1,0 +1,15 @@
+# Core dependencies
+numpy>=1.20
+pandas>=1.3
+scikit-learn>=1.0
+matplotlib>=3.4
+tqdm>=4.60
+
+# Full features (optional)
+pygam>=0.8.0
+xarray>=0.19
+geopandas>=0.10
+
+# Development (optional)
+pytest>=6.0
+jupyter>=1.0

@@ -1,0 +1,77 @@
+site_name: GeoEquity
+site_description: Spatial Equity Assessment for Machine Learning Models
+site_url: https://px39n.github.io/geoequity/
+repo_url: https://github.com/px39n/geoequity
+repo_name: px39n/geoequity
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            show_root_heading: true
+            heading_level: 2
+  - mkdocs-jupyter
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+  - User Guide:
+    - Two-Stage Model: guide/two-stage.md
+    - Data Splitting: guide/splitting.md
+    - Visualization: guide/visualization.md
+  - API Reference:
+    - TwoStageModel: api/two-stage.md
+    - Data Utilities: api/data.md
+    - Visualization: api/visualization.md
+  - Examples:
+    - Standard Workflow: examples/Standard_workflow_geoequity.ipynb
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/px39n/geoequity
+
