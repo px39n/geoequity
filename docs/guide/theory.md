@@ -1,61 +1,78 @@
 # Theory
 
-## Problem Formulation
+## What We're Solving
 
-Given a validation dataset $\mathcal{D}_{\text{val}}$ collected under varying observational conditions and cross-validation or repeated experiments $\mathcal{D}_{\text{train}}$ under different sampling sizes, we aim to explain how $R^2$ changes as a function of **density**, **sample size**, and **space**.
+You've trained an ML model and computed $R^2$ at each validation station. Now you want to know:
 
-The validation set $\mathcal{D}_{\text{val}}$ is further split into a fitting subset and a 20% held-out subset.
+1. **Why** does accuracy vary across locations?
+2. **What** accuracy can I expect at a new location?
+3. **How** will accuracy change if I collect more data?
 
-We adopt a **two-stage modeling strategy**:
-
-- **Stage 1**: How $R^2$ is impacted by density and sample size
-- **Stage 2**: Spatial dependence for the residuals of Stage 1
-
----
-
-## Stage 1: Density GAM
-
-For every location independently, $R^2$ is modeled as a function of station density $\rho$ and sample size $n$. We use a Generalized Additive Model:
-
-$$R^2_{\text{GAM}}(\rho, n) = s_1(\log_{10}(n)) + s_2(\rho) + s_3(\log_{10}(n), \rho) + \varepsilon$$
-
-where:
-
-- $s_1(\cdot)$ and $s_2(\cdot)$ are **monotonic increasing** spline functions
-- $s_3(\log_{10}(n), \rho)$ is a smooth interaction term implemented as a tensor-product spline, allowing the effect of sample size to vary with density
-
-**Monotonicity constraints**:
-
-$$\frac{\partial s_1}{\partial \log_{10}(n)} \geq 0, \quad \frac{\partial s_2}{\partial \rho} \geq 0$$
-
-These encode the physical assumption that accuracy increases with both $n$ and $\rho$.
-
-The GAM is trained on data aggregated into sampling-number × density bins, producing the global baseline $\hat{R}^2_{\text{GAM}} = g(\rho, n)$.
+The challenge: you only have $R^2$ values at monitored stations—how do you estimate accuracy everywhere else?
 
 ---
 
-## Stage 2: Spatial SVM
+## The Two-Stage Approach
 
-Compute residuals $r = R^2 - \hat{R}^2_{\text{GAM}}$ as spatially-aggregated data under different sampling sizes $n$.
+We model accuracy as depending on two factors:
 
-Train a Support Vector Regression (SVR) model to predict these residuals:
+| Factor | What it captures |
+|--------|-----------------|
+| **Data availability** | Density of stations, training sample size |
+| **Location** | Geographic patterns not explained by data availability |
 
-$$\hat{r} = h(n, \ell)$$
+---
 
-where $\ell = (\text{lon}, \text{lat})$ captures location-specific deviations.
+## Stage 1: Data Availability → Accuracy
 
-!!! note
-    $\rho$ is omitted in Stage 2 because density effects are already absorbed by Stage 1.
+We fit a GAM (Generalized Additive Model) to predict $R^2$ from:
+
+- **Station density** ($\rho$): How many nearby stations exist
+- **Sample size** ($n$): How much training data was used
+
+The model enforces a sensible constraint: **more data = better accuracy**. This is done through monotonic splines that can only increase with $\rho$ and $n$.
+
+**Output**: A baseline accuracy estimate $\hat{R}^2_{\text{GAM}}$ that captures global trends.
+
+---
+
+## Stage 2: Location-Specific Adjustments
+
+After Stage 1, some locations still have unexplained accuracy differences. These residuals:
+
+$$r = R^2_{\text{observed}} - \hat{R}^2_{\text{GAM}}$$
+
+are modeled using an SVM that learns spatial patterns—capturing things like:
+
+- Regional data quality differences
+- Terrain complexity effects
+- Local climate variability
+
+**Output**: A spatial correction $\hat{r}_{\text{SVM}}$ for each location.
 
 ---
 
 ## Final Prediction
 
-The combined prediction:
+Combine both stages:
 
-$$\hat{R}^2 = g(\rho, n) + h(n, \ell) = \hat{R}^2_{\text{GAM}} + \hat{r}_{\text{SVM}}$$
+$$\hat{R}^2 = \hat{R}^2_{\text{GAM}} + \hat{r}_{\text{SVM}}$$
 
-This decomposition separates the **interpretable density-accuracy relationship** (Stage 1) from **spatial residual patterns** (Stage 2), enabling both global trend estimation and local correction.
+| Component | Interprets | Extrapolates to |
+|-----------|-----------|-----------------|
+| Stage 1 | Density-accuracy relationship | New data conditions |
+| Stage 2 | Spatial residuals | New locations |
+| Combined | Full accuracy surface | Anywhere |
+
+---
+
+## Why This Works Better Than Interpolation
+
+Traditional approach: interpolate $R^2$ based on distance to nearby stations.
+
+**Problem**: This assumes accuracy varies smoothly with location, ignoring that sparse regions systematically underperform regardless of what's nearby.
+
+**Our approach**: Accuracy depends on data availability first, then location. A sparse region will have low predicted accuracy even if surrounded by high-accuracy stations.
 
 ---
 
