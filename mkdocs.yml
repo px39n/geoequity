@@ -55,6 +55,7 @@ nav:
   - User Guide:
     - Two-Stage Model: guide/two-stage.md
     - Data Splitting: guide/splitting.md
+    - Model Comparison: guide/comparison.md
     - Visualization: guide/visualization.md
   - API Reference:
     - TwoStageModel: api/two-stage.md
