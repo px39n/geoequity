@@ -631,10 +631,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#problem-formulation" class="md-nav__link">
+  <a href="#what-were-solving" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Problem Formulation
+        What We're Solving
       
     </span>
   </a>
@@ -642,10 +642,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stage-1-density-gam" class="md-nav__link">
+  <a href="#the-two-stage-approach" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 1: Density GAM
+        The Two-Stage Approach
       
     </span>
   </a>
@@ -653,10 +653,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stage-2-spatial-svm" class="md-nav__link">
+  <a href="#stage-1-data-availability-accuracy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 2: Spatial SVM
+        Stage 1: Data Availability → Accuracy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stage-2-location-specific-adjustments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Location-Specific Adjustments
       
     </span>
   </a>
@@ -668,6 +679,17 @@
     <span class="md-ellipsis">
       
         Final Prediction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-works-better-than-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Works Better Than Interpolation
       
     </span>
   </a>
@@ -1130,10 +1152,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#problem-formulation" class="md-nav__link">
+  <a href="#what-were-solving" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Problem Formulation
+        What We're Solving
       
     </span>
   </a>
@@ -1141,10 +1163,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stage-1-density-gam" class="md-nav__link">
+  <a href="#the-two-stage-approach" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 1: Density GAM
+        The Two-Stage Approach
       
     </span>
   </a>
@@ -1152,10 +1174,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stage-2-spatial-svm" class="md-nav__link">
+  <a href="#stage-1-data-availability-accuracy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 2: Spatial SVM
+        Stage 1: Data Availability → Accuracy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stage-2-location-specific-adjustments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Location-Specific Adjustments
       
     </span>
   </a>
@@ -1167,6 +1200,17 @@
     <span class="md-ellipsis">
       
         Final Prediction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-this-works-better-than-interpolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why This Works Better Than Interpolation
       
     </span>
   </a>
@@ -1205,42 +1249,90 @@
 
 
 <h1 id="theory">Theory<a class="headerlink" href="#theory" title="Permanent link">&para;</a></h1>
-<h2 id="problem-formulation">Problem Formulation<a class="headerlink" href="#problem-formulation" title="Permanent link">&para;</a></h2>
-<p>Given a validation dataset <span class="arithmatex">\(\mathcal{D}_{\text{val}}\)</span> collected under varying observational conditions and cross-validation or repeated experiments <span class="arithmatex">\(\mathcal{D}_{\text{train}}\)</span> under different sampling sizes, we aim to explain how <span class="arithmatex">\(R^2\)</span> changes as a function of <strong>density</strong>, <strong>sample size</strong>, and <strong>space</strong>.</p>
-<p>The validation set <span class="arithmatex">\(\mathcal{D}_{\text{val}}\)</span> is further split into a fitting subset and a 20% held-out subset.</p>
-<p>We adopt a <strong>two-stage modeling strategy</strong>:</p>
-<ul>
-<li><strong>Stage 1</strong>: How <span class="arithmatex">\(R^2\)</span> is impacted by density and sample size</li>
-<li><strong>Stage 2</strong>: Spatial dependence for the residuals of Stage 1</li>
-</ul>
+<h2 id="what-were-solving">What We're Solving<a class="headerlink" href="#what-were-solving" title="Permanent link">&para;</a></h2>
+<p>You've trained an ML model and computed <span class="arithmatex">\(R^2\)</span> at each validation station. Now you want to know:</p>
+<ol>
+<li><strong>Why</strong> does accuracy vary across locations?</li>
+<li><strong>What</strong> accuracy can I expect at a new location?</li>
+<li><strong>How</strong> will accuracy change if I collect more data?</li>
+</ol>
+<p>The challenge: you only have <span class="arithmatex">\(R^2\)</span> values at monitored stations—how do you estimate accuracy everywhere else?</p>
 <hr />
-<h2 id="stage-1-density-gam">Stage 1: Density GAM<a class="headerlink" href="#stage-1-density-gam" title="Permanent link">&para;</a></h2>
-<p>For every location independently, <span class="arithmatex">\(R^2\)</span> is modeled as a function of station density <span class="arithmatex">\(\rho\)</span> and sample size <span class="arithmatex">\(n\)</span>. We use a Generalized Additive Model:</p>
-<div class="arithmatex">\[R^2_{\text{GAM}}(\rho, n) = s_1(\log_{10}(n)) + s_2(\rho) + s_3(\log_{10}(n), \rho) + \varepsilon\]</div>
-<p>where:</p>
-<ul>
-<li><span class="arithmatex">\(s_1(\cdot)\)</span> and <span class="arithmatex">\(s_2(\cdot)\)</span> are <strong>monotonic increasing</strong> spline functions</li>
-<li><span class="arithmatex">\(s_3(\log_{10}(n), \rho)\)</span> is a smooth interaction term implemented as a tensor-product spline, allowing the effect of sample size to vary with density</li>
-</ul>
-<p><strong>Monotonicity constraints</strong>:</p>
-<div class="arithmatex">\[\frac{\partial s_1}{\partial \log_{10}(n)} \geq 0, \quad \frac{\partial s_2}{\partial \rho} \geq 0\]</div>
-<p>These encode the physical assumption that accuracy increases with both <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(\rho\)</span>.</p>
-<p>The GAM is trained on data aggregated into sampling-number × density bins, producing the global baseline <span class="arithmatex">\(\hat{R}^2_{\text{GAM}} = g(\rho, n)\)</span>.</p>
+<h2 id="the-two-stage-approach">The Two-Stage Approach<a class="headerlink" href="#the-two-stage-approach" title="Permanent link">&para;</a></h2>
+<p>We model accuracy as depending on two factors:</p>
+<table>
+<thead>
+<tr>
+<th>Factor</th>
+<th>What it captures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Data availability</strong></td>
+<td>Density of stations, training sample size</td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>Geographic patterns not explained by data availability</td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h2 id="stage-2-spatial-svm">Stage 2: Spatial SVM<a class="headerlink" href="#stage-2-spatial-svm" title="Permanent link">&para;</a></h2>
-<p>Compute residuals <span class="arithmatex">\(r = R^2 - \hat{R}^2_{\text{GAM}}\)</span> as spatially-aggregated data under different sampling sizes <span class="arithmatex">\(n\)</span>.</p>
-<p>Train a Support Vector Regression (SVR) model to predict these residuals:</p>
-<div class="arithmatex">\[\hat{r} = h(n, \ell)\]</div>
-<p>where <span class="arithmatex">\(\ell = (\text{lon}, \text{lat})\)</span> captures location-specific deviations.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><span class="arithmatex">\(\rho\)</span> is omitted in Stage 2 because density effects are already absorbed by Stage 1.</p>
-</div>
+<h2 id="stage-1-data-availability-accuracy">Stage 1: Data Availability → Accuracy<a class="headerlink" href="#stage-1-data-availability-accuracy" title="Permanent link">&para;</a></h2>
+<p>We fit a GAM (Generalized Additive Model) to predict <span class="arithmatex">\(R^2\)</span> from:</p>
+<ul>
+<li><strong>Station density</strong> (<span class="arithmatex">\(\rho\)</span>): How many nearby stations exist</li>
+<li><strong>Sample size</strong> (<span class="arithmatex">\(n\)</span>): How much training data was used</li>
+</ul>
+<p>The model enforces a sensible constraint: <strong>more data = better accuracy</strong>. This is done through monotonic splines that can only increase with <span class="arithmatex">\(\rho\)</span> and <span class="arithmatex">\(n\)</span>.</p>
+<p><strong>Output</strong>: A baseline accuracy estimate <span class="arithmatex">\(\hat{R}^2_{\text{GAM}}\)</span> that captures global trends.</p>
+<hr />
+<h2 id="stage-2-location-specific-adjustments">Stage 2: Location-Specific Adjustments<a class="headerlink" href="#stage-2-location-specific-adjustments" title="Permanent link">&para;</a></h2>
+<p>After Stage 1, some locations still have unexplained accuracy differences. These residuals:</p>
+<div class="arithmatex">\[r = R^2_{\text{observed}} - \hat{R}^2_{\text{GAM}}\]</div>
+<p>are modeled using an SVM that learns spatial patterns—capturing things like:</p>
+<ul>
+<li>Regional data quality differences</li>
+<li>Terrain complexity effects</li>
+<li>Local climate variability</li>
+</ul>
+<p><strong>Output</strong>: A spatial correction <span class="arithmatex">\(\hat{r}_{\text{SVM}}\)</span> for each location.</p>
 <hr />
 <h2 id="final-prediction">Final Prediction<a class="headerlink" href="#final-prediction" title="Permanent link">&para;</a></h2>
-<p>The combined prediction:</p>
-<div class="arithmatex">\[\hat{R}^2 = g(\rho, n) + h(n, \ell) = \hat{R}^2_{\text{GAM}} + \hat{r}_{\text{SVM}}\]</div>
-<p>This decomposition separates the <strong>interpretable density-accuracy relationship</strong> (Stage 1) from <strong>spatial residual patterns</strong> (Stage 2), enabling both global trend estimation and local correction.</p>
+<p>Combine both stages:</p>
+<div class="arithmatex">\[\hat{R}^2 = \hat{R}^2_{\text{GAM}} + \hat{r}_{\text{SVM}}\]</div>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Interprets</th>
+<th>Extrapolates to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stage 1</td>
+<td>Density-accuracy relationship</td>
+<td>New data conditions</td>
+</tr>
+<tr>
+<td>Stage 2</td>
+<td>Spatial residuals</td>
+<td>New locations</td>
+</tr>
+<tr>
+<td>Combined</td>
+<td>Full accuracy surface</td>
+<td>Anywhere</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="why-this-works-better-than-interpolation">Why This Works Better Than Interpolation<a class="headerlink" href="#why-this-works-better-than-interpolation" title="Permanent link">&para;</a></h2>
+<p>Traditional approach: interpolate <span class="arithmatex">\(R^2\)</span> based on distance to nearby stations.</p>
+<p><strong>Problem</strong>: This assumes accuracy varies smoothly with location, ignoring that sparse regions systematically underperform regardless of what's nearby.</p>
+<p><strong>Our approach</strong>: Accuracy depends on data availability first, then location. A sparse region will have low predicted accuracy even if surrounded by high-accuracy stations.</p>
 <hr />
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">liang2025geoequity</span><span class="p">,</span>
