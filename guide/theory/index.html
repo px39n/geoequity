@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://px39n.github.io/geoequity/">
+        <link rel="canonical" href="https://px39n.github.io/geoequity/guide/theory/">
       
       
+        <link rel="prev" href="../../getting-started/quickstart/">
       
-        <link rel="next" href="getting-started/installation/">
+      
+        <link rel="next" href="../two-stage/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>GeoEquity</title>
+        <title>Theory - GeoEquity</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#geoequity" class="md-skip">
+        <a href="#theory-problem-formulation" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="GeoEquity" class="md-header__button md-logo" aria-label="GeoEquity" data-md-component="logo">
+    <a href="../.." title="GeoEquity" class="md-header__button md-logo" aria-label="GeoEquity" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Theory
             
           </span>
         </div>
@@ -219,11 +221,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -244,7 +244,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="getting-started/installation/" class="md-tabs__link">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
           
   
   
@@ -260,11 +260,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="guide/theory/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -284,7 +286,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/two-stage/" class="md-tabs__link">
+        <a href="../../api/two-stage/" class="md-tabs__link">
           
   
   
@@ -304,7 +306,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="examples/Standard_workflow_geoequity/" class="md-tabs__link">
+        <a href="../../examples/Standard_workflow_geoequity/" class="md-tabs__link">
           
   
   
@@ -338,7 +340,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="GeoEquity" class="md-nav__button md-logo" aria-label="GeoEquity" data-md-component="logo">
+    <a href="../.." title="GeoEquity" class="md-nav__button md-logo" aria-label="GeoEquity" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -365,37 +367,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -411,120 +386,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Example
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#required-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Required Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-notebooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example Notebooks
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#citation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -590,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -618,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -650,28 +511,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -689,7 +553,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -704,10 +568,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="guide/theory/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theory
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -723,6 +614,215 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#problem-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem Statement
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-challenge-spatial-inequity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Challenge: Spatial Inequity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-station-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Station Density
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Station Density">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#haversine-distance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Haversine Distance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-imbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types of Imbalance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Imbalance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spatial-imbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial Imbalance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distributional-imbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Distributional Imbalance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#twostagemodel-accuracy-surface-with-physical-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TwoStageModel: Accuracy Surface with Physical Constraints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TwoStageModel: Accuracy Surface with Physical Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-density-gam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: Density GAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-spatial-svm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Spatial SVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Prediction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insights
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Insights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#predictive-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predictive Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Citation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -735,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/two-stage/" class="md-nav__link">
+      <a href="../two-stage/" class="md-nav__link">
         
   
   
@@ -763,7 +863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/splitting/" class="md-nav__link">
+      <a href="../splitting/" class="md-nav__link">
         
   
   
@@ -791,7 +891,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/comparison/" class="md-nav__link">
+      <a href="../comparison/" class="md-nav__link">
         
   
   
@@ -819,7 +919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="guide/visualization/" class="md-nav__link">
+      <a href="../visualization/" class="md-nav__link">
         
   
   
@@ -908,7 +1008,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/two-stage/" class="md-nav__link">
+      <a href="../../api/two-stage/" class="md-nav__link">
         
   
   
@@ -936,7 +1036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/data/" class="md-nav__link">
+      <a href="../../api/data/" class="md-nav__link">
         
   
   
@@ -964,7 +1064,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/visualization/" class="md-nav__link">
+      <a href="../../api/visualization/" class="md-nav__link">
         
   
   
@@ -1053,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="examples/Standard_workflow_geoequity/" class="md-nav__link">
+      <a href="../../examples/Standard_workflow_geoequity/" class="md-nav__link">
         
   
   
@@ -1081,7 +1181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="examples/Framework_Comparision/" class="md-nav__link">
+      <a href="../../examples/Framework_Comparision/" class="md-nav__link">
         
   
   
@@ -1109,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="examples/Scientific_Visualization/" class="md-nav__link">
+      <a href="../../examples/Scientific_Visualization/" class="md-nav__link">
         
   
   
@@ -1164,10 +1264,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#problem-statement" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Problem Statement
       
     </span>
   </a>
@@ -1175,22 +1275,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-example" class="md-nav__link">
+  <a href="#the-challenge-spatial-inequity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Example
+        The Challenge: Spatial Inequity
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Quick Example">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-station-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Station Density
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local Station Density">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#required-data" class="md-nav__link">
+  <a href="#haversine-distance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Required Data
+        Haversine Distance
       
     </span>
   </a>
@@ -1203,35 +1314,130 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#types-of-imbalance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
+        Types of Imbalance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Types of Imbalance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spatial-imbalance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spatial Imbalance
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#distributional-imbalance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation
+        Distributional Imbalance
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#example-notebooks" class="md-nav__link">
+  <a href="#twostagemodel-accuracy-surface-with-physical-constraints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example Notebooks
+        TwoStageModel: Accuracy Surface with Physical Constraints
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="TwoStageModel: Accuracy Surface with Physical Constraints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-density-gam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: Density GAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-spatial-svm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Spatial SVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#final-prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Final Prediction
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insights
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Insights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#predictive-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predictive Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1240,17 +1446,6 @@
     <span class="md-ellipsis">
       
         Citation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        License
       
     </span>
   </a>
@@ -1277,123 +1472,113 @@
   
 
 
-<h1 id="geoequity">GeoEquity<a class="headerlink" href="#geoequity" title="Permanent link">&para;</a></h1>
-<p><strong>Spatial Equity Assessment for Machine Learning Models</strong></p>
-<p>GeoEquity diagnoses and visualizes spatial performance disparities in geospatial ML models—identifying where models underperform and predicting accuracy across space.</p>
-<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<h1 id="theory-problem-formulation">Theory &amp; Problem Formulation<a class="headerlink" href="#theory-problem-formulation" title="Permanent link">&para;</a></h1>
+<h2 id="problem-statement">Problem Statement<a class="headerlink" href="#problem-statement" title="Permanent link">&para;</a></h2>
+<p>Consider a spatiotemporal process observed at <span class="arithmatex">\(n\)</span> monitoring stations <span class="arithmatex">\(\ell_1, \ell_2, \ldots, \ell_n \in \mathcal{S} \subset \mathbb{R}^2\)</span> over time periods <span class="arithmatex">\(t \in \{1, 2, \ldots, T\}\)</span>. At each spatiotemporal location <span class="arithmatex">\((\ell, t)\)</span>, we observe the input-output pair <span class="arithmatex">\((y_t(\ell), \mathbf{x}_t(\ell))\)</span>, where:</p>
 <ul>
-<li>🎯 <strong>Two-Stage Accuracy Prediction</strong>: Density effect (GAM) + Spatial residual (SVM)</li>
-<li>📊 <strong>Spatial Equity Diagnostics</strong>: Identify under-served regions</li>
-<li>🗺️ <strong>Visualization Tools</strong>: Publication-ready accuracy maps</li>
-<li>📈 <strong>Model Comparison</strong>: Benchmark against baselines</li>
+<li><span class="arithmatex">\(y_t(\ell) \in \mathbb{R}\)</span> is the target variable</li>
+<li><span class="arithmatex">\(\mathbf{x}_t(\ell) \in \mathbb{R}^d\)</span> is a <span class="arithmatex">\(d\)</span>-dimensional covariate vector</li>
 </ul>
-<h2 id="quick-example">Quick Example<a class="headerlink" href="#quick-example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">geoequity</span> <span class="kn">import</span> <span class="n">TwoStageModel</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Fit on your validated predictions</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">ts</span> <span class="o">=</span> <span class="n">TwoStageModel</span><span class="p">()</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">ts</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_test</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;mymodel&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Predict accuracy anywhere</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">accuracy</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">longitude</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Generate diagnostics</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">ts</span><span class="o">.</span><span class="n">diagnose</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;diagnostics/&#39;</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="required-data">Required Data<a class="headerlink" href="#required-data" title="Permanent link">&para;</a></h3>
+<p>Our objective is to estimate a function <span class="arithmatex">\(f\)</span> parameterized by <span class="arithmatex">\(\boldsymbol{\theta}\)</span> such that:</p>
+<div class="arithmatex">\[y_t(\ell) = f(\mathbf{x}_t(\ell); \boldsymbol{\theta}) + \epsilon_t(\ell)\]</div>
+<p>where <span class="arithmatex">\(\epsilon_t(\ell)\)</span> is Gaussian white noise with <span class="arithmatex">\(\mathbb{E}[\epsilon_t(\ell)] = 0\)</span> and <span class="arithmatex">\(\text{Var}(\epsilon_t(\ell)) = \sigma^2\)</span>.</p>
+<h2 id="the-challenge-spatial-inequity">The Challenge: Spatial Inequity<a class="headerlink" href="#the-challenge-spatial-inequity" title="Permanent link">&para;</a></h2>
+<p>The fundamental inferential challenge arises from <strong>spatiotemporal heterogeneity</strong> in the data distribution. Since observations are non-uniformly distributed across the joint covariate-space-time domain, parameter estimates <span class="arithmatex">\(\hat{\boldsymbol{\theta}}\)</span> become biased towards data-dense regions, leading to poor generalization in sparse areas.</p>
+<h2 id="local-station-density">Local Station Density<a class="headerlink" href="#local-station-density" title="Permanent link">&para;</a></h2>
+<p>For any spatial location <span class="arithmatex">\(\ell \in \mathcal{S}\)</span>, the <strong>local weighted station density</strong> is:</p>
+<div class="arithmatex">\[\rho(\ell) = \frac{1}{\pi r^2} \sum_{j \in \mathcal{N}(\ell)} w_{\ell j}\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(w_j = \frac{r - \min(d_j, r)}{r}\)</span> is the distance-based weight</li>
+<li><span class="arithmatex">\(d_j\)</span> is the Haversine distance between location <span class="arithmatex">\(\ell\)</span> and station <span class="arithmatex">\(j\)</span></li>
+<li><span class="arithmatex">\(\mathcal{N}(\ell) = \{j \mid d_j \leq r\}\)</span> is the set of stations within radius <span class="arithmatex">\(r\)</span></li>
+<li><span class="arithmatex">\(\pi r^2\)</span> normalizes by the search area</li>
+</ul>
+<h3 id="haversine-distance">Haversine Distance<a class="headerlink" href="#haversine-distance" title="Permanent link">&para;</a></h3>
+<p>The distance <span class="arithmatex">\(d_{ij}\)</span> between two geographic points is:</p>
+<div class="arithmatex">\[d_{ij} = 2R \arcsin\left(\sqrt{\sin^2\left(\frac{\phi_j - \phi_i}{2}\right) + \cos(\phi_i)\cos(\phi_j)\sin^2\left(\frac{\lambda_j - \lambda_i}{2}\right)}\right)\]</div>
+<p>where <span class="arithmatex">\(R = 6371\)</span> km (Earth's radius), and <span class="arithmatex">\((\phi, \lambda)\)</span> are latitude and longitude in radians.</p>
+<h2 id="types-of-imbalance">Types of Imbalance<a class="headerlink" href="#types-of-imbalance" title="Permanent link">&para;</a></h2>
+<h3 id="spatial-imbalance">Spatial Imbalance<a class="headerlink" href="#spatial-imbalance" title="Permanent link">&para;</a></h3>
+<p>Non-uniform distribution of monitoring stations where <span class="arithmatex">\(\rho(\ell)\)</span> exhibits multi-order-of-magnitude variations across <span class="arithmatex">\(\mathcal{S}\)</span>. Certain regions are overrepresented in training data relative to their spatial extent, while others remain critically undersampled.</p>
+<h3 id="distributional-imbalance">Distributional Imbalance<a class="headerlink" href="#distributional-imbalance" title="Permanent link">&para;</a></h3>
+<p>Spatial heterogeneity in the joint distribution of covariates and target variables. For stations <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span> at different locations:</p>
+<ul>
+<li><span class="arithmatex">\(P(\mathbf{x}_{i,t}) \neq P(\mathbf{x}_{j,t})\)</span> (different marginal distributions)</li>
+<li><span class="arithmatex">\(P(y_{i,t}|\mathbf{x}_{i,t}) \neq P(y_{j,t}|\mathbf{x}_{j,t})\)</span> (different conditional distributions)</li>
+</ul>
+<p>These distributions share the same functional form but exhibit location-dependent parameters.</p>
+<hr />
+<h2 id="twostagemodel-accuracy-surface-with-physical-constraints">TwoStageModel: Accuracy Surface with Physical Constraints<a class="headerlink" href="#twostagemodel-accuracy-surface-with-physical-constraints" title="Permanent link">&para;</a></h2>
+<h3 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h3>
+<p>Per-location <span class="arithmatex">\(R^2\)</span> provides empirical accuracy only at monitored sites. Accuracy at unobserved locations must be estimated. Spatial interpolation methods achieve only modest correlation because they cannot account for sample size and density effects.</p>
+<h3 id="stage-1-density-gam">Stage 1: Density GAM<a class="headerlink" href="#stage-1-density-gam" title="Permanent link">&para;</a></h3>
+<p>For every location, model <span class="arithmatex">\(R^2\)</span> as a function of station density <span class="arithmatex">\(\rho\)</span> and sample size <span class="arithmatex">\(n\)</span>:</p>
+<div class="arithmatex">\[R^2_{\text{GAM}}(\rho, n) = s_1(\log_{10}(n)) + s_2(\rho) + s_3(\log_{10}(n), \rho) + \varepsilon\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(s_1(\cdot)\)</span> and <span class="arithmatex">\(s_2(\cdot)\)</span> are <strong>monotonic increasing</strong> spline functions</li>
+<li><span class="arithmatex">\(s_3(\log_{10}(n), \rho)\)</span> is a smooth interaction term (tensor-product spline)</li>
+</ul>
+<p><strong>Monotonicity constraints</strong> encode the physical assumption that accuracy increases with both sample size and density:</p>
+<div class="arithmatex">\[\frac{\partial s_1}{\partial \log_{10}(n)} \geq 0, \quad \frac{\partial s_2}{\partial \rho} \geq 0\]</div>
+<h3 id="stage-2-spatial-svm">Stage 2: Spatial SVM<a class="headerlink" href="#stage-2-spatial-svm" title="Permanent link">&para;</a></h3>
+<p>Compute residuals from Stage 1:</p>
+<div class="arithmatex">\[r = R^2 - \hat{R}^2_{\text{GAM}}\]</div>
+<p>Train a Support Vector Regression (SVR) to predict location-specific deviations:</p>
+<div class="arithmatex">\[\hat{r} = h(n, \ell)\]</div>
+<p>where <span class="arithmatex">\(\ell = (\text{lon}, \text{lat})\)</span> captures spatial patterns not explained by density alone.</p>
+<h3 id="final-prediction">Final Prediction<a class="headerlink" href="#final-prediction" title="Permanent link">&para;</a></h3>
+<p>The combined prediction:</p>
+<div class="arithmatex">\[\hat{R}^2 = g(\rho, n) + h(n, \ell) = \hat{R}^2_{\text{GAM}} + \hat{r}_{\text{SVM}}\]</div>
+<p>This decomposition separates:</p>
+<ol>
+<li><strong>Interpretable density-accuracy relationship</strong> (Stage 1)</li>
+<li><strong>Spatial residual patterns</strong> (Stage 2)</li>
+</ol>
+<hr />
+<h2 id="key-insights">Key Insights<a class="headerlink" href="#key-insights" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Column</th>
-<th>Description</th>
+<th>Component</th>
+<th>Captures</th>
+<th>Physical Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>longitude</code>, <code>latitude</code></td>
-<td>Coordinates</td>
+<td>Stage 1 GAM</td>
+<td>Global density effect</td>
+<td>More data → higher accuracy</td>
 </tr>
 <tr>
-<td><code>observed</code></td>
-<td>Ground truth</td>
+<td>Stage 2 SVM</td>
+<td>Local spatial patterns</td>
+<td>Location-specific factors</td>
 </tr>
 <tr>
-<td><code>predicted_{model_name}</code></td>
-<td>Model predictions</td>
-</tr>
-<tr>
-<td><code>density</code></td>
-<td>Data density</td>
-</tr>
-<tr>
-<td><code>sufficiency</code></td>
-<td>Sample size</td>
+<td>Combined</td>
+<td>Full accuracy surface</td>
+<td>Predict performance anywhere</td>
 </tr>
 </tbody>
 </table>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>geoequity
-</code></pre></div>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Section</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="getting-started/quickstart/">Quick Start</a></td>
-<td>Data preparation + basic usage</td>
-</tr>
-<tr>
-<td><a href="guide/two-stage/">Two-Stage Model</a></td>
-<td>Core methodology</td>
-</tr>
-<tr>
-<td><a href="guide/comparison/">Model Comparison</a></td>
-<td>Benchmark methods</td>
-</tr>
-<tr>
-<td><a href="guide/visualization/">Visualization</a></td>
-<td>Accuracy maps</td>
-</tr>
-</tbody>
-</table>
-<h2 id="example-notebooks">Example Notebooks<a class="headerlink" href="#example-notebooks" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Notebook</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="examples/Standard_workflow_geoequity/">Standard Workflow</a></td>
-<td>Complete pipeline</td>
-</tr>
-<tr>
-<td><a href="examples/Framework_Comparision/">Framework Comparison</a></td>
-<td>Compare baselines</td>
-</tr>
-<tr>
-<td><a href="examples/Scientific_Visualization/">Scientific Visualization</a></td>
-<td>Publication maps</td>
-</tr>
-</tbody>
-</table>
+<h3 id="predictive-performance">Predictive Performance<a class="headerlink" href="#predictive-performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Unseen data conditions</strong>: correlation ≈ 0.95</li>
+<li><strong>Unseen spatial locations</strong>: correlation ≈ 0.60</li>
+<li><strong>Improvement over interpolation</strong>: 89% (conditions), 46% (locations)</li>
+</ul>
+<hr />
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">liang2025geoequity</span><span class="p">,</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Countering Local Overfitting for Equitable Spatiotemporal Modeling}</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Liang, Zhehao and Castruccio, Stefano and Crippa, Paola}</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{...}</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">liang2025geoequity</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Countering Local Overfitting for Equitable Spatiotemporal Modeling}</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Liang, Zhehao and Castruccio, Stefano and Crippa, Paola}</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{...}</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>MIT License</p>
 
 
 
@@ -1465,12 +1650,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
-        <script src="javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
