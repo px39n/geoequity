@@ -2,10 +2,7 @@
 
 ## split_test_train
 
-::: geoequity.data.split.split_test_train
-    options:
-      show_source: true
-      heading_level: 3
+Split data into train/test sets with spatial awareness.
 
 ### Usage
 
@@ -38,10 +35,7 @@ train_list, test_list, train_idx_list, test_idx_list, df = split_test_train(
 
 ## calculate_density
 
-::: geoequity.data.sparsity.calculate_density
-    options:
-      show_source: true
-      heading_level: 3
+Calculate data density for each observation based on nearby points.
 
 ### Usage
 

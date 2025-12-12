@@ -1,9 +1,20 @@
 # TwoStageModel
 
-::: geoequity.two_stage.model.TwoStageModel
-    options:
-      show_source: true
-      heading_level: 2
+The core model for predicting spatial variations in ML model accuracy.
+
+```python
+from geoequity import TwoStageModel
+
+model = TwoStageModel(spline=7, lam=0.5, resolution=[30, 30])
+```
+
+## Constructor
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| spline | int | 7 | Number of spline bases for GAM |
+| lam | float | 0.5 | GAM regularization parameter |
+| resolution | list | [30, 30] | Grid resolution for SVM |
 
 ## Methods
 
