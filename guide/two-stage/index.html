@@ -643,10 +643,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stage-1-density-based-accuracy" class="md-nav__link">
+  <a href="#stage-1-density-based-accuracy-gam" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 1: Density-Based Accuracy
+        Stage 1: Density-Based Accuracy (GAM)
       
     </span>
   </a>
@@ -654,10 +654,49 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stage-2-spatial-residuals" class="md-nav__link">
+  <a href="#stage-2-spatial-residuals-svm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 2: Spatial Residuals
+        Stage 2: Spatial Residuals (SVM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experiment Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiment Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-sufficiency-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Sufficiency Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-sufficiency-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi Sufficiency Mode
       
     </span>
   </a>
@@ -681,6 +720,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#diagnostic-outputs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -696,6 +746,17 @@
     <span class="md-ellipsis">
       
         Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
       
     </span>
   </a>
@@ -726,6 +787,34 @@
     
   
     Data Splitting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Comparison
   
 
     
@@ -1103,10 +1192,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stage-1-density-based-accuracy" class="md-nav__link">
+  <a href="#stage-1-density-based-accuracy-gam" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 1: Density-Based Accuracy
+        Stage 1: Density-Based Accuracy (GAM)
       
     </span>
   </a>
@@ -1114,10 +1203,49 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stage-2-spatial-residuals" class="md-nav__link">
+  <a href="#stage-2-spatial-residuals-svm" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 2: Spatial Residuals
+        Stage 2: Spatial Residuals (SVM)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#experiment-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Experiment Modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Experiment Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-sufficiency-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Sufficiency Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-sufficiency-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi Sufficiency Mode
       
     </span>
   </a>
@@ -1141,6 +1269,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prediction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#diagnostic-outputs" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1156,6 +1295,17 @@
     <span class="md-ellipsis">
       
         Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-insight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Insight
       
     </span>
   </a>
@@ -1185,60 +1335,152 @@
 <h1 id="two-stage-model">Two-Stage Model<a class="headerlink" href="#two-stage-model" title="Permanent link">&para;</a></h1>
 <p>The Two-Stage Model is GeoEquity's core method for predicting and understanding spatial variations in model accuracy.</p>
 <h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
-<h3 id="stage-1-density-based-accuracy">Stage 1: Density-Based Accuracy<a class="headerlink" href="#stage-1-density-based-accuracy" title="Permanent link">&para;</a></h3>
-<p>The first stage uses a Generalized Additive Model (GAM) to capture the relationship between data density and model accuracy.</p>
+<h3 id="stage-1-density-based-accuracy-gam">Stage 1: Density-Based Accuracy (GAM)<a class="headerlink" href="#stage-1-density-based-accuracy-gam" title="Permanent link">&para;</a></h3>
+<p>The first stage uses a <strong>Monotonic Generalized Additive Model (GAM)</strong> to capture the relationship between data density and model accuracy.</p>
 <ul>
 <li><strong>Input</strong>: Density features (sparsity, sufficiency)</li>
 <li><strong>Model</strong>: Monotonic GAM with shape constraints</li>
 <li><strong>Output</strong>: Baseline accuracy prediction</li>
 </ul>
-<h3 id="stage-2-spatial-residuals">Stage 2: Spatial Residuals<a class="headerlink" href="#stage-2-spatial-residuals" title="Permanent link">&para;</a></h3>
-<p>The second stage uses a Support Vector Machine (SVM) to capture spatial patterns in the residuals from Stage 1.</p>
+<h3 id="stage-2-spatial-residuals-svm">Stage 2: Spatial Residuals (SVM)<a class="headerlink" href="#stage-2-spatial-residuals-svm" title="Permanent link">&para;</a></h3>
+<p>The second stage uses a <strong>Support Vector Machine (SVM)</strong> to capture spatial patterns in the residuals from Stage 1.</p>
 <ul>
 <li><strong>Input</strong>: Spatial coordinates (longitude, latitude)</li>
 <li><strong>Model</strong>: SVM with RBF kernel</li>
 <li><strong>Output</strong>: Spatial adjustment to accuracy</li>
 </ul>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">geoequity</span> <span class="kn">import</span> <span class="n">TwoStageModel</span>
+<h2 id="experiment-modes">Experiment Modes<a class="headerlink" href="#experiment-modes" title="Permanent link">&para;</a></h2>
+<h3 id="single-sufficiency-mode">Single Sufficiency Mode<a class="headerlink" href="#single-sufficiency-mode" title="Permanent link">&para;</a></h3>
+<p>Use full dataset as one sample size level:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">EXPERIMENT_MODE</span> <span class="o">=</span> <span class="s1">&#39;single&#39;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Initialize with custom parameters</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">TwoStageModel</span><span class="p">(</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">spline</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>           <span class="c1"># Number of spline bases for GAM</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">lam</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>            <span class="c1"># GAM regularization</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">resolution</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="c1"># Grid resolution for SVM</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Fit the model</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">df</span><span class="p">,</span>                      <span class="c1"># DataFrame with test data</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">model_col</span><span class="o">=</span><span class="s1">&#39;predicted&#39;</span><span class="p">,</span>   <span class="c1"># Column with model predictions</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">target_col</span><span class="o">=</span><span class="s1">&#39;observed&#39;</span>    <span class="c1"># Column with ground truth (optional)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># Predict accuracy</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">accuracy</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="n">longitude</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="n">latitude</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>    <span class="n">density</span><span class="o">=</span><span class="mf">0.001</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">)</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="c1"># Generate diagnostics</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="n">model</span><span class="o">.</span><span class="n">diagnose</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;output/&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Sample to 100k if dataset is larger</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">n_suff</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n_suff</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sufficiency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100000</span>
+</code></pre></div>
+<p><strong>Use when</strong>: Quick analysis, production models with fixed training size.</p>
+<h3 id="multi-sufficiency-mode">Multi Sufficiency Mode<a class="headerlink" href="#multi-sufficiency-mode" title="Permanent link">&para;</a></h3>
+<p>Study how accuracy changes with data volume:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">EXPERIMENT_MODE</span> <span class="o">=</span> <span class="s1">&#39;multi&#39;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">SUFFICIENCY_LEVELS</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5000</span><span class="p">,</span> <span class="mi">20000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">df_list</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">for</span> <span class="n">suff</span> <span class="ow">in</span> <span class="n">SUFFICIENCY_LEVELS</span><span class="p">:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">df_sampled</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">suff</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">df_sampled</span><span class="p">[</span><span class="s1">&#39;sufficiency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">suff</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">df_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_sampled</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">df_list</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Use when</strong>: Research on data efficiency, understanding sampling effects.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">geoequity</span> <span class="kn">import</span> <span class="n">TwoStageModel</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">geoequity.two_stage.model</span> <span class="kn">import</span> <span class="n">find_bins_intervals</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Create density bins for aggregation</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">bins_intervals</span> <span class="o">=</span> <span class="n">find_bins_intervals</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">density_bins</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Initialize model</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">ts_model</span> <span class="o">=</span> <span class="n">TwoStageModel</span><span class="p">(</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">spline</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>           <span class="c1"># Number of spline bases for GAM</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">lam</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>            <span class="c1"># GAM regularization</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">resolution</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="c1"># Spatial aggregation grid</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">)</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="c1"># Fit the model on test data</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">ts_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="n">df_train_raw</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_idx</span><span class="p">],</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>           <span class="c1"># Matches &#39;predicted_linear&#39; column</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="n">bins_intervals</span><span class="o">=</span><span class="n">bins_intervals</span><span class="p">,</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="n">split_by</span><span class="o">=</span><span class="s1">&#39;grid&#39;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">)</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage 1 R²: </span><span class="si">{</span><span class="n">ts_model</span><span class="o">.</span><span class="n">stage1_score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage 2 R²: </span><span class="si">{</span><span class="n">ts_model</span><span class="o">.</span><span class="n">stage2_score</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="prediction">Prediction<a class="headerlink" href="#prediction" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">geoequity.two_stage</span> <span class="kn">import</span> <span class="n">predict_at_locations</span><span class="p">,</span> <span class="n">plot_predicted_accuracy_map</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Get station network info</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">stations</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">])</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">sufficiency</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sufficiency&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Predict at specific coordinates</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">r2</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="n">predict_at_locations</span><span class="p">(</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">ts_model</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">longitude</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">latitude</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">station_lons</span><span class="o">=</span><span class="n">stations</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">],</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">station_lats</span><span class="o">=</span><span class="n">stations</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">],</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="n">sufficiency</span><span class="o">=</span><span class="n">sufficiency</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">)</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="c1"># Plot accuracy map</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plot_predicted_accuracy_map</span><span class="p">(</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="n">ts_model</span><span class="p">,</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="n">stations</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="n">stations</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="n">sufficiency</span><span class="p">,</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="n">lon_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="n">lat_range</span><span class="o">=</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="n">grid_size</span><span class="o">=</span><span class="mi">30</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="p">)</span>
 </code></pre></div>
 <h2 id="diagnostic-outputs">Diagnostic Outputs<a class="headerlink" href="#diagnostic-outputs" title="Permanent link">&para;</a></h2>
-<p>The <code>diagnose()</code> method generates:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">ts_model</span><span class="o">.</span><span class="n">diagnose</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;diagnostics/&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>Generates:</p>
 <ol>
-<li><strong>stage1_gam.png</strong>: GAM partial dependence plots showing density-accuracy relationship</li>
+<li><strong>stage1_gam.png</strong>: GAM partial dependence plots showing density→accuracy relationship</li>
 <li><strong>stage2_svm.png</strong>: Spatial map of residual patterns</li>
-<li><strong>diagnosis.txt</strong>: Summary statistics and model parameters</li>
+<li><strong>diagnosis.txt</strong>: Summary statistics</li>
 </ol>
+<p>Example output:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Stage 1 (Monotonic GAM) - Density/Sampling Effect:
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  - r = 0.9872, MAE = 0.0214
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Stage 2 (SVM) - Spatial Residual:
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  - r = 0.4986, MAE = 0.1830
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>Key Insights:
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  1. Density effect captured in Stage 1 (r=0.987)
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>  2. Spatial pattern captured in Stage 2 (r=0.499)
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>  3. Prediction at unseen locations: r=0.643 (Total)
+</code></pre></div></p>
 <h2 id="interpretation">Interpretation<a class="headerlink" href="#interpretation" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>High Stage 1 residuals</strong>: Spatial factors beyond density affect accuracy</li>
-<li><strong>Clustered Stage 2 patterns</strong>: Geographic regions with systematic over/under-performance</li>
-<li><strong>Uniform Stage 2</strong>: Density alone explains accuracy variations</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High Stage 1 R²</td>
+<td>Density strongly predicts accuracy</td>
+</tr>
+<tr>
+<td>High Stage 2 residuals</td>
+<td>Location-specific factors beyond density</td>
+</tr>
+<tr>
+<td>Clustered Stage 2 patterns</td>
+<td>Geographic regions with systematic bias</td>
+</tr>
+<tr>
+<td>Uniform Stage 2</td>
+<td>Density alone explains accuracy variations</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-insight">Key Insight<a class="headerlink" href="#key-insight" title="Permanent link">&para;</a></h2>
+<p>Machine learning models trained on geospatial data exhibit <strong>spatial inequity</strong>: prediction accuracy varies systematically across space due to:</p>
+<ol>
+<li><strong>Sampling Density Effect</strong> (Stage 1): Denser observation networks → more training data → higher accuracy</li>
+<li><strong>Spatial Residual Effect</strong> (Stage 2): Location-specific data quality, terrain complexity, etc.</li>
+</ol>
+<p>TwoStageModel quantifies this inequity, enabling fair assessment and identification of under-served regions.</p>
 
 
 

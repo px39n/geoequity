@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://px39n.github.io/geoequity/guide/visualization/">
       
       
-        <link rel="prev" href="../splitting/">
+        <link rel="prev" href="../comparison/">
       
       
         <link rel="next" href="../../api/two-stage/">
@@ -624,6 +624,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -687,10 +715,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#accuracy-maps" class="md-nav__link">
+  <a href="#visualization-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Accuracy Maps
+        Visualization Modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#twostagemodel-prediction-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TwoStageModel Prediction Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compare-multiple-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compare Multiple Modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-mode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Mode Plot
       
     </span>
   </a>
@@ -709,41 +770,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-visualizations" class="md-nav__link">
+  <a href="#note-on-negative-r2-values" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Visualizations
+        Note on Negative R² Values
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Custom Visualizations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#accuracy-comparison" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Accuracy Comparison
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#density-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Density Distribution
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1091,10 +1124,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#accuracy-maps" class="md-nav__link">
+  <a href="#visualization-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Accuracy Maps
+        Visualization Modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#twostagemodel-prediction-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TwoStageModel Prediction Map
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compare-multiple-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compare Multiple Modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-mode-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Mode Plot
       
     </span>
   </a>
@@ -1113,41 +1179,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-visualizations" class="md-nav__link">
+  <a href="#note-on-negative-r2-values" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Visualizations
+        Note on Negative R² Values
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Custom Visualizations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#accuracy-comparison" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Accuracy Comparison
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#density-distribution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Density Distribution
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1183,57 +1221,136 @@
 
 
 <h1 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h1>
-<p>GeoEquity provides tools for creating publication-ready spatial visualizations.</p>
-<h2 id="accuracy-maps">Accuracy Maps<a class="headerlink" href="#accuracy-maps" title="Permanent link">&para;</a></h2>
-<p>Visualize predicted accuracy across space:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">geoequity.visualization</span> <span class="kn">import</span> <span class="n">plot_accuracy_map</span>
+<p>GeoEquity provides tools for creating publication-ready spatial accuracy visualizations.</p>
+<h2 id="visualization-modes">Visualization Modes<a class="headerlink" href="#visualization-modes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>observation</code></td>
+<td>Per-station R² scatter</td>
+<td>Show raw accuracy at observation locations</td>
+</tr>
+<tr>
+<td><code>interpolation</code></td>
+<td>IDW interpolation</td>
+<td>Smooth accuracy surface</td>
+</tr>
+<tr>
+<td><code>average_NxM</code></td>
+<td>Grid-averaged R²</td>
+<td>Aggregate accuracy in spatial bins</td>
+</tr>
+<tr>
+<td><code>spatial_model</code></td>
+<td>SVM regression</td>
+<td>ML-based spatial pattern</td>
+</tr>
+<tr>
+<td><code>two_stage</code></td>
+<td>TwoStageModel prediction</td>
+<td>Density-aware accuracy prediction</td>
+</tr>
+</tbody>
+</table>
+<h2 id="twostagemodel-prediction-map">TwoStageModel Prediction Map<a class="headerlink" href="#twostagemodel-prediction-map" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">geoequity.two_stage.visualization</span> <span class="kn">import</span> <span class="n">plot_predicted_accuracy_map</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_accuracy_map</span><span class="p">(</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">model</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">ds</span><span class="p">,</span>                    <span class="c1"># xarray Dataset with coordinates</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">mask</span><span class="o">=</span><span class="n">land_mask</span><span class="p">,</span>        <span class="c1"># Optional land/sea mask</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Spectral_r&#39;</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Model Accuracy&#39;</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">)</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Get station network</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">stations</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;latitude&#39;</span><span class="p">])</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">sufficiency</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;sufficiency&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Plot density + predicted accuracy</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plot_predicted_accuracy_map</span><span class="p">(</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">ts_model</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">stations</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">stations</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">sufficiency</span><span class="p">,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">lon_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">lat_range</span><span class="o">=</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">grid_size</span><span class="o">=</span><span class="mi">30</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">)</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;TwoStageModel: Density → Accuracy&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="diagnostic-plots">Diagnostic Plots<a class="headerlink" href="#diagnostic-plots" title="Permanent link">&para;</a></h2>
-<p>The TwoStageModel includes built-in diagnostic visualization:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">model</span><span class="o">.</span><span class="n">diagnose</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;diagnostics/&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<h2 id="compare-multiple-modes">Compare Multiple Modes<a class="headerlink" href="#compare-multiple-modes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">geoequity.visualization</span> <span class="kn">import</span> <span class="n">plot_accuracy_comparison</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plot_accuracy_comparison</span><span class="p">(</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_idx</span><span class="p">],</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">modes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;observation&#39;</span><span class="p">,</span> <span class="s1">&#39;interpolation&#39;</span><span class="p">,</span> <span class="s1">&#39;average_15x20&#39;</span><span class="p">,</span> <span class="s1">&#39;spatial_model&#39;</span><span class="p">,</span> <span class="s1">&#39;two_stage&#39;</span><span class="p">],</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">accuracy_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">lon_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">lat_range</span><span class="o">=</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="c1"># Required for &#39;two_stage&#39; mode:</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">ts_model</span><span class="o">=</span><span class="n">ts_model</span><span class="p">,</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="n">station_lons</span><span class="o">=</span><span class="n">stations</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="n">station_lats</span><span class="o">=</span><span class="n">stations</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">)</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Model Accuracy - Visualization Modes&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<p>This generates:
-- <strong>stage1_gam.png</strong>: Partial dependence plots for density features
-- <strong>stage2_svm.png</strong>: Spatial map of residual patterns</p>
-<h2 id="custom-visualizations">Custom Visualizations<a class="headerlink" href="#custom-visualizations" title="Permanent link">&para;</a></h2>
-<h3 id="accuracy-comparison">Accuracy Comparison<a class="headerlink" href="#accuracy-comparison" title="Permanent link">&para;</a></h3>
-<p>Compare multiple models or visualization modes:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">geoequity.visualization</span> <span class="kn">import</span> <span class="n">plot_accuracy_comparison</span>
+<h2 id="single-mode-plot">Single Mode Plot<a class="headerlink" href="#single-mode-plot" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">geoequity.visualization</span> <span class="kn">import</span> <span class="n">plot_accuracy_map</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plot_accuracy_comparison</span><span class="p">(</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">df</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;MyModel&#39;</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">modes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;observation&#39;</span><span class="p">,</span> <span class="s1">&#39;interpolation&#39;</span><span class="p">,</span> <span class="s1">&#39;spatial_model&#39;</span><span class="p">],</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_accuracy_map</span><span class="p">(</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">test_idx</span><span class="p">],</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;interpolation&#39;</span><span class="p">,</span>
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">accuracy_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">lon_range</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">lat_range</span><span class="o">=</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<h3 id="density-distribution">Density Distribution<a class="headerlink" href="#density-distribution" title="Permanent link">&para;</a></h3>
-<p>Visualize data density across space:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">],</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">c</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">)</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+<h2 id="diagnostic-plots">Diagnostic Plots<a class="headerlink" href="#diagnostic-plots" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Generate TwoStageModel diagnostics</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">ts_model</span><span class="o">.</span><span class="n">diagnose</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;diagnostics/&#39;</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
+<p>Outputs:
+- <strong>stage1_gam.png</strong>: GAM partial dependence plots
+- <strong>stage2_svm.png</strong>: Spatial residual map
+- <strong>diagnosis.txt</strong>: Summary statistics</p>
+<h2 id="note-on-negative-r2-values">Note on Negative R² Values<a class="headerlink" href="#note-on-negative-r2-values" title="Permanent link">&para;</a></h2>
+<p>R² can be negative when the model performs worse than predicting the mean. This happens when:
+- Sparse regions have insufficient data
+- Model has poor generalization in certain areas</p>
+<p>If negative R² values appear frequently, consider:</p>
+<table>
+<thead>
+<tr>
+<th>Alternative Metric</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MSE/RMSE</strong></td>
+<td>Always positive, easier to interpret</td>
+</tr>
+<tr>
+<td><strong>MAE</strong></td>
+<td>More robust to outliers</td>
+</tr>
+<tr>
+<td><strong>Correlation (r)</strong></td>
+<td>Ranges -1 to 1, captures linear relationship</td>
+</tr>
+</tbody>
+</table>
 <h2 id="styling-tips">Styling Tips<a class="headerlink" href="#styling-tips" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Use <code>Spectral_r</code> or <code>RdYlGn</code> for accuracy (red=low, green=high)</li>
-<li>Set consistent <code>vmin=0, vmax=1</code> for R² values</li>
+<li>Set consistent <code>accuracy_range=(0, 1)</code> for R² values</li>
 <li>Add land boundaries with geopandas for context</li>
+<li>Use <code>grid_size=30</code> for smooth maps, lower for faster rendering</li>
 </ul>
 
 
