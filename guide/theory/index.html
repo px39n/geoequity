@@ -631,10 +631,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-problem-hidden-spatial-inequity" class="md-nav__link">
+  <a href="#problem-formulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Problem: Hidden Spatial Inequity
+        Problem Formulation
       
     </span>
   </a>
@@ -642,29 +642,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#accuracy-surface-problem-formulation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Accuracy Surface: Problem Formulation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#two-stage-modeling-strategy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Two-Stage Modeling Strategy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Two-Stage Modeling Strategy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#stage-1-density-gam" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -674,8 +651,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#stage-2-spatial-svm" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -685,28 +662,12 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#final-prediction" class="md-nav__link">
     <span class="md-ellipsis">
       
         Final Prediction
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary
       
     </span>
   </a>
@@ -1169,10 +1130,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-problem-hidden-spatial-inequity" class="md-nav__link">
+  <a href="#problem-formulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Problem: Hidden Spatial Inequity
+        Problem Formulation
       
     </span>
   </a>
@@ -1180,29 +1141,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#accuracy-surface-problem-formulation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Accuracy Surface: Problem Formulation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#two-stage-modeling-strategy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Two-Stage Modeling Strategy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Two-Stage Modeling Strategy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#stage-1-density-gam" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1212,8 +1150,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#stage-2-spatial-svm" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1223,28 +1161,12 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#final-prediction" class="md-nav__link">
     <span class="md-ellipsis">
       
         Final Prediction
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary
       
     </span>
   </a>
@@ -1283,107 +1205,42 @@
 
 
 <h1 id="theory">Theory<a class="headerlink" href="#theory" title="Permanent link">&para;</a></h1>
-<h2 id="the-problem-hidden-spatial-inequity">The Problem: Hidden Spatial Inequity<a class="headerlink" href="#the-problem-hidden-spatial-inequity" title="Permanent link">&para;</a></h2>
-<p>Machine learning models trained on geospatial data exhibit <strong>spatial inequity</strong>—prediction accuracy varies systematically across space. This inequity is often masked by global evaluation metrics.</p>
-<table>
-<thead>
-<tr>
-<th>Challenge</th>
-<th>Impact</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Non-uniform sensor networks</td>
-<td>Models prioritize data-dense regions</td>
-</tr>
-<tr>
-<td>Global <span class="arithmatex">\(R^2\)</span> hides disparities</td>
-<td>Sparse regions underperform undetected</td>
-</tr>
-<tr>
-<td>Spatial interpolation of accuracy</td>
-<td>Ignores data availability effects</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="accuracy-surface-problem-formulation">Accuracy Surface: Problem Formulation<a class="headerlink" href="#accuracy-surface-problem-formulation" title="Permanent link">&para;</a></h2>
-<p>Given a validation dataset <span class="arithmatex">\(\mathcal{D}_{\text{val}}\)</span> collected under varying observational conditions and training experiments <span class="arithmatex">\(\mathcal{D}_{\text{train}}\)</span> under different sampling sizes, we aim to explain how <span class="arithmatex">\(R^2\)</span> changes as a function of:</p>
+<h2 id="problem-formulation">Problem Formulation<a class="headerlink" href="#problem-formulation" title="Permanent link">&para;</a></h2>
+<p>Given a validation dataset <span class="arithmatex">\(\mathcal{D}_{\text{val}}\)</span> collected under varying observational conditions and cross-validation or repeated experiments <span class="arithmatex">\(\mathcal{D}_{\text{train}}\)</span> under different sampling sizes, we aim to explain how <span class="arithmatex">\(R^2\)</span> changes as a function of <strong>density</strong>, <strong>sample size</strong>, and <strong>space</strong>.</p>
+<p>The validation set <span class="arithmatex">\(\mathcal{D}_{\text{val}}\)</span> is further split into a fitting subset and a 20% held-out subset.</p>
+<p>We adopt a <strong>two-stage modeling strategy</strong>:</p>
 <ul>
-<li><strong>Density</strong> <span class="arithmatex">\(\rho\)</span> — station density at each location</li>
-<li><strong>Sample size</strong> <span class="arithmatex">\(n\)</span> — training data volume  </li>
-<li><strong>Space</strong> <span class="arithmatex">\(\ell\)</span> — geographic coordinates</li>
-</ul>
-<p>The validation set is split into a fitting subset and a 20% held-out subset for evaluation.</p>
-<hr />
-<h2 id="two-stage-modeling-strategy">Two-Stage Modeling Strategy<a class="headerlink" href="#two-stage-modeling-strategy" title="Permanent link">&para;</a></h2>
-<p>We decompose the accuracy prediction into two interpretable stages:</p>
-<ul>
-<li><strong>Stage 1</strong>: How <span class="arithmatex">\(R^2\)</span> depends on density and sample size</li>
-<li><strong>Stage 2</strong>: Spatial residuals not explained by Stage 1</li>
+<li><strong>Stage 1</strong>: How <span class="arithmatex">\(R^2\)</span> is impacted by density and sample size</li>
+<li><strong>Stage 2</strong>: Spatial dependence for the residuals of Stage 1</li>
 </ul>
 <hr />
-<h3 id="stage-1-density-gam">Stage 1: Density GAM<a class="headerlink" href="#stage-1-density-gam" title="Permanent link">&para;</a></h3>
-<p>For every location, model <span class="arithmatex">\(R^2\)</span> as a function of station density <span class="arithmatex">\(\rho\)</span> and sample size <span class="arithmatex">\(n\)</span> using a Generalized Additive Model:</p>
+<h2 id="stage-1-density-gam">Stage 1: Density GAM<a class="headerlink" href="#stage-1-density-gam" title="Permanent link">&para;</a></h2>
+<p>For every location independently, <span class="arithmatex">\(R^2\)</span> is modeled as a function of station density <span class="arithmatex">\(\rho\)</span> and sample size <span class="arithmatex">\(n\)</span>. We use a Generalized Additive Model:</p>
 <div class="arithmatex">\[R^2_{\text{GAM}}(\rho, n) = s_1(\log_{10}(n)) + s_2(\rho) + s_3(\log_{10}(n), \rho) + \varepsilon\]</div>
 <p>where:</p>
 <ul>
 <li><span class="arithmatex">\(s_1(\cdot)\)</span> and <span class="arithmatex">\(s_2(\cdot)\)</span> are <strong>monotonic increasing</strong> spline functions</li>
-<li><span class="arithmatex">\(s_3(\log_{10}(n), \rho)\)</span> is a smooth interaction term (tensor-product spline), allowing the effect of sample size to vary with density</li>
+<li><span class="arithmatex">\(s_3(\log_{10}(n), \rho)\)</span> is a smooth interaction term implemented as a tensor-product spline, allowing the effect of sample size to vary with density</li>
 </ul>
-<p><strong>Monotonicity constraints</strong> encode the physical assumption that accuracy increases with both <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(\rho\)</span>:</p>
+<p><strong>Monotonicity constraints</strong>:</p>
 <div class="arithmatex">\[\frac{\partial s_1}{\partial \log_{10}(n)} \geq 0, \quad \frac{\partial s_2}{\partial \rho} \geq 0\]</div>
+<p>These encode the physical assumption that accuracy increases with both <span class="arithmatex">\(n\)</span> and <span class="arithmatex">\(\rho\)</span>.</p>
 <p>The GAM is trained on data aggregated into sampling-number × density bins, producing the global baseline <span class="arithmatex">\(\hat{R}^2_{\text{GAM}} = g(\rho, n)\)</span>.</p>
 <hr />
-<h3 id="stage-2-spatial-svm">Stage 2: Spatial SVM<a class="headerlink" href="#stage-2-spatial-svm" title="Permanent link">&para;</a></h3>
-<p>Compute residuals as spatially-aggregated data under different sampling sizes <span class="arithmatex">\(n\)</span>:</p>
-<div class="arithmatex">\[r = R^2 - \hat{R}^2_{\text{GAM}}\]</div>
+<h2 id="stage-2-spatial-svm">Stage 2: Spatial SVM<a class="headerlink" href="#stage-2-spatial-svm" title="Permanent link">&para;</a></h2>
+<p>Compute residuals <span class="arithmatex">\(r = R^2 - \hat{R}^2_{\text{GAM}}\)</span> as spatially-aggregated data under different sampling sizes <span class="arithmatex">\(n\)</span>.</p>
 <p>Train a Support Vector Regression (SVR) model to predict these residuals:</p>
 <div class="arithmatex">\[\hat{r} = h(n, \ell)\]</div>
 <p>where <span class="arithmatex">\(\ell = (\text{lon}, \text{lat})\)</span> captures location-specific deviations.</p>
 <div class="admonition note">
-<p class="admonition-title">Why <span class="arithmatex">\(\rho\)</span> is omitted in Stage 2</p>
-<p>Density effects are already absorbed by Stage 1, so Stage 2 only captures spatial patterns beyond density.</p>
+<p class="admonition-title">Note</p>
+<p><span class="arithmatex">\(\rho\)</span> is omitted in Stage 2 because density effects are already absorbed by Stage 1.</p>
 </div>
 <hr />
-<h3 id="final-prediction">Final Prediction<a class="headerlink" href="#final-prediction" title="Permanent link">&para;</a></h3>
+<h2 id="final-prediction">Final Prediction<a class="headerlink" href="#final-prediction" title="Permanent link">&para;</a></h2>
 <p>The combined prediction:</p>
 <div class="arithmatex">\[\hat{R}^2 = g(\rho, n) + h(n, \ell) = \hat{R}^2_{\text{GAM}} + \hat{r}_{\text{SVM}}\]</div>
-<p>This decomposition separates:</p>
-<ol>
-<li><strong>Interpretable density-accuracy relationship</strong> (Stage 1)</li>
-<li><strong>Spatial residual patterns</strong> (Stage 2)</li>
-</ol>
-<p>Enabling both global trend estimation and local correction.</p>
-<hr />
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Stage</th>
-<th>Input</th>
-<th>Captures</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Stage 1 (GAM)</td>
-<td>Density <span class="arithmatex">\(\rho\)</span>, Sample size <span class="arithmatex">\(n\)</span></td>
-<td>Global density-accuracy trend</td>
-</tr>
-<tr>
-<td>Stage 2 (SVM)</td>
-<td>Location <span class="arithmatex">\(\ell\)</span>, Sample size <span class="arithmatex">\(n\)</span></td>
-<td>Location-specific residuals</td>
-</tr>
-<tr>
-<td>Combined</td>
-<td>All</td>
-<td>Full accuracy surface</td>
-</tr>
-</tbody>
-</table>
+<p>This decomposition separates the <strong>interpretable density-accuracy relationship</strong> (Stage 1) from <strong>spatial residual patterns</strong> (Stage 2), enabling both global trend estimation and local correction.</p>
 <hr />
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">liang2025geoequity</span><span class="p">,</span>
