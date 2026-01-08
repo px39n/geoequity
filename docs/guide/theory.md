@@ -21,6 +21,13 @@ We model accuracy as depending on two factors:
 | **Data availability** | Density of stations, training sample size |
 | **Location** | Geographic patterns not explained by data availability |
 
+```pseudocode
+# Input: raw test data
+df_test: 100,000 rows → (lon, lat, density, sufficiency, observed, predicted)
+
+# Goal: predict R² at any (lon, lat, density, sufficiency)
+```
+
 ---
 
 ## Stage 1: Data Availability → Accuracy
@@ -34,11 +41,30 @@ The model enforces a sensible constraint: **more data = better accuracy**. This 
 
 **Output**: A baseline accuracy estimate $\hat{R}^2_{\text{GAM}}$ that captures global trends.
 
+
+```pseudocode
+df_test 
+  → Given: [sufficiency, lon, lat, observed, predicted, density]
+
+  # Remove local spatial noise first.
+  → Spatial Groupby (lon, lat)
+  → [sufficiency, lon_avg, lat_avg, density_avg, R²_compute]
+
+  # Extract sampling effect uniformly
+  → Sampling Groupby (sufficiency, density)
+  → [sufficiency, density_avg_bin, density_avg_avg, R²_avg] 
+
+  # Then, GAM can learn the information of data availability in a uniform way
+
+  → Build GAM(density, sufficiency) → R²
+
+```
+
 ---
 
 ## Stage 2: Location-Specific Adjustments
 
-After Stage 1, some locations still have unexplained accuracy differences. These residuals:
+After Stage 1, some locations  still have unexplained accuracy differences. These residuals:
 
 $$r = R^2_{\text{observed}} - \hat{R}^2_{\text{GAM}}$$
 
@@ -49,6 +75,30 @@ are modeled using an SVM that learns spatial patterns—capturing things like:
 - Local climate variability
 
 **Output**: A spatial correction $\hat{r}_{\text{SVM}}$ for each location.
+
+
+  → Group by [lon_bin, lat_bin, suff_bin]
+  → Get [(lon_bin, lat_bin), density, sufficiency, R²]
+  → baseline_r2 = GAM(density, sufficiency)
+  → residual = R² - baseline_r2
+  → Build SVM(lon, lat) → residual
+
+
+```pseudocode
+df_test 
+  → Given: [sufficiency, lon, lat, observed, predicted, density]
+
+  # Remove local spatial noise.
+  → Spatial Groupby (lon, lat)
+  → [sufficiency, lon_avg, lat_avg, density_avg, R²_compute]
+
+  # Use model in stage 1
+  → residual_r2 = R² - GAM(sufficiency, density)
+
+  # Then, SVM can learn the spatial pattern of residuals.
+  → Build SVM(lon_bin, lat_bin) → residual_r2
+
+```
 
 ---
 
