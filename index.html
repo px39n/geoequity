@@ -1301,38 +1301,60 @@
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">ts</span><span class="o">.</span><span class="n">diagnose</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="s1">&#39;diagnostics/&#39;</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="required-data">Required Data<a class="headerlink" href="#required-data" title="Permanent link">&para;</a></h3>
+<p><strong>Input</strong>: <code>df_test</code> should be a <strong>test set DataFrame</strong> (out-of-sample predictions) containing:</p>
 <table>
 <thead>
 <tr>
 <th>Column</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>longitude</code>, <code>latitude</code></td>
-<td>Coordinates</td>
+<td>✓</td>
+<td>Spatial coordinates</td>
 </tr>
 <tr>
 <td><code>observed</code></td>
-<td>Ground truth</td>
+<td>✓</td>
+<td>Ground truth values</td>
 </tr>
 <tr>
 <td><code>predicted_{model_name}</code></td>
-<td>Model predictions</td>
+<td>✓</td>
+<td>Model predictions (name must match <code>model_name</code> parameter)</td>
 </tr>
 <tr>
 <td><code>density</code></td>
-<td>Data density</td>
+<td>✓</td>
+<td>Spatial data density (user-defined function)</td>
 </tr>
 <tr>
 <td><code>sufficiency</code></td>
-<td>Sample size</td>
+<td>Optional*</td>
+<td>Training sample size per prediction</td>
 </tr>
 </tbody>
 </table>
+<p><strong>*Note on optional fields</strong>:</p>
+<ul>
+<li>
+<p><strong><code>density</code></strong>: Any user-defined spatial density metric (kernel density, k-NN, IDW, etc.)
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gaussian_kernel</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">bandwidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># Example</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong><code>sufficiency</code></strong>: Optional if all samples share the same training size (auto-detected). Required for k-fold CV.
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sufficiency&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1000000</span>  <span class="c1"># Single value</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># OR</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">sufficiency</span><span class="o">=</span><span class="mi">800000</span><span class="p">),</span> <span class="n">df2</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">sufficiency</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)])</span>  <span class="c1"># Multiple</span>
+</code></pre></div></p>
+</li>
+</ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>geoequity
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>geoequity
 </code></pre></div>
 <h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
 <table>
@@ -1385,12 +1407,12 @@
 </tbody>
 </table>
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">liang2025geoequity</span><span class="p">,</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Countering Local Overfitting for Equitable Spatiotemporal Modeling}</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Liang, Zhehao and Castruccio, Stefano and Crippa, Paola}</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{...}</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">liang2025geoequity</span><span class="p">,</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Countering Local Overfitting for Equitable Spatiotemporal Modeling}</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Liang, Zhehao and Castruccio, Stefano and Crippa, Paola}</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{...}</span><span class="p">,</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
 </code></pre></div>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
 <p>MIT License</p>

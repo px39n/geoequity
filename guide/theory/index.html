@@ -1278,6 +1278,11 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Input: raw test data
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>df_test: 100,000 rows → (lon, lat, density, sufficiency, observed, predicted)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># Goal: predict R² at any (lon, lat, density, sufficiency)
+</code></pre></div>
 <hr />
 <h2 id="stage-1-data-availability-accuracy">Stage 1: Data Availability → Accuracy<a class="headerlink" href="#stage-1-data-availability-accuracy" title="Permanent link">&para;</a></h2>
 <p>We fit a GAM (Generalized Additive Model) to predict <span class="arithmatex">\(R^2\)</span> from:</p>
@@ -1287,9 +1292,24 @@
 </ul>
 <p>The model enforces a sensible constraint: <strong>more data = better accuracy</strong>. This is done through monotonic splines that can only increase with <span class="arithmatex">\(\rho\)</span> and <span class="arithmatex">\(n\)</span>.</p>
 <p><strong>Output</strong>: A baseline accuracy estimate <span class="arithmatex">\(\hat{R}^2_{\text{GAM}}\)</span> that captures global trends.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>df_test 
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  → Given: [sufficiency, lon, lat, observed, predicted, density]
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  # Remove local spatial noise first.
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  → Spatial Groupby (lon, lat)
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  → [sufficiency, lon_avg, lat_avg, density_avg, R²_compute]
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>  # Extract sampling effect uniformly
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>  → Sampling Groupby (sufficiency, density)
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>  → [sufficiency, density_avg_bin, density_avg_avg, R²_avg] 
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>  # Then, GAM can learn the information of data availability in a uniform way
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  → Build GAM(density, sufficiency) → R²
+</code></pre></div>
 <hr />
 <h2 id="stage-2-location-specific-adjustments">Stage 2: Location-Specific Adjustments<a class="headerlink" href="#stage-2-location-specific-adjustments" title="Permanent link">&para;</a></h2>
-<p>After Stage 1, some locations still have unexplained accuracy differences. These residuals:</p>
+<p>After Stage 1, some locations  still have unexplained accuracy differences. These residuals:</p>
 <div class="arithmatex">\[r = R^2_{\text{observed}} - \hat{R}^2_{\text{GAM}}\]</div>
 <p>are modeled using an SVM that learns spatial patterns—capturing things like:</p>
 <ul>
@@ -1298,6 +1318,24 @@
 <li>Local climate variability</li>
 </ul>
 <p><strong>Output</strong>: A spatial correction <span class="arithmatex">\(\hat{r}_{\text{SVM}}\)</span> for each location.</p>
+<p>→ Group by [lon_bin, lat_bin, suff_bin]
+  → Get [(lon_bin, lat_bin), density, sufficiency, R²]
+  → baseline_r2 = GAM(density, sufficiency)
+  → residual = R² - baseline_r2
+  → Build SVM(lon, lat) → residual</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>df_test 
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  → Given: [sufficiency, lon, lat, observed, predicted, density]
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  # Remove local spatial noise.
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  → Spatial Groupby (lon, lat)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  → [sufficiency, lon_avg, lat_avg, density_avg, R²_compute]
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  # Use model in stage 1
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  → residual_r2 = R² - GAM(sufficiency, density)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  # Then, SVM can learn the spatial pattern of residuals.
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  → Build SVM(lon_bin, lat_bin) → residual_r2
+</code></pre></div>
 <hr />
 <h2 id="final-prediction">Final Prediction<a class="headerlink" href="#final-prediction" title="Permanent link">&para;</a></h2>
 <p>Combine both stages:</p>
@@ -1335,12 +1373,12 @@
 <p><strong>Our approach</strong>: Accuracy depends on data availability first, then location. A sparse region will have low predicted accuracy even if surrounded by high-accuracy stations.</p>
 <hr />
 <h2 id="citation">Citation<a class="headerlink" href="#citation" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">liang2025geoequity</span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Countering Local Overfitting for Equitable Spatiotemporal Modeling}</span><span class="p">,</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Liang, Zhehao and Castruccio, Stefano and Crippa, Paola}</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{...}</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">liang2025geoequity</span><span class="p">,</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Countering Local Overfitting for Equitable Spatiotemporal Modeling}</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Liang, Zhehao and Castruccio, Stefano and Crippa, Paola}</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{...}</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
 </code></pre></div>
 
 
